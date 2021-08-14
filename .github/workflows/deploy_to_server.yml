@@ -31,4 +31,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "build"
-        target: "/public_html/test/hiccup"
+        target: "public_html/test/hiccup"
