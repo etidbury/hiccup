@@ -31,4 +31,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "build/*"
+        rm: true
+        strip_components: 1
         target: "public_html/test/hiccup"
