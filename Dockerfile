@@ -10,7 +10,26 @@ COPY . .
 
 RUN ["npm","run","build"]
 
-FROM nginx:mainline-alpine as server
+
+
+
+
+
+# FROM nginx:mainline-alpine as server
+
+# WORKDIR /usr/share/nginx/html
+
+# COPY default.conf /etc/nginx/conf.d/
+
+# COPY  --from=builder /app/build ./
+
+
+FROM nginx:1.13.5
+
+RUN usermod --non-unique --uid 1000 nginx \
+  && groupmod --non-unique --gid 1000 nginx \
+  && chown -R nginx:nginx /usr/share/nginx/html
+
 
 WORKDIR /usr/share/nginx/html
 
